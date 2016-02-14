@@ -102,6 +102,11 @@ command! Wq wq
 command! WQ wq
 map U <C-R>
 
+noremap H 10h
+noremap J 20j
+noremap K 20k
+noremap L 10l
+
 set splitbelow
 set splitright
 
