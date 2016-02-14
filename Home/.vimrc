@@ -94,6 +94,14 @@ nnoremap <C-Down>  :tabp<CR>
 
 map Q :qa<CR>
 
+map ; :
+
+command! W w
+command! Q q
+command! Wq wq
+command! WQ wq
+map U <C-R>
+
 set splitbelow
 set splitright
 
