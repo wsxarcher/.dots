@@ -107,6 +107,10 @@ noremap J 20j
 noremap K 20k
 noremap L 10l
 
+map s :s/
+map S :%s/
+vmap S :s/
+
 set splitbelow
 set splitright
 
