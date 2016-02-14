@@ -11,6 +11,9 @@ alias shred="shred -z"
 alias wget="wget -U 'Fuck'"
 alias curl="curl --user-agent 'Fuck'"
 
+# bin
+alias checksec="~/.dots/checksec.sh/checksec"
+
 # antigen
 source ~/.dots/antigen/antigen.zsh
 
