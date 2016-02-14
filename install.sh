@@ -9,4 +9,4 @@ then
     exit 1
 fi
 
-cp -irT ./Home $HOME/
+cp -irsfT $PWD/Home $HOME/
