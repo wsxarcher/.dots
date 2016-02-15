@@ -25,6 +25,8 @@ let g:bufferline_echo = 0
 Plugin 'ervandew/supertab'
 Plugin 'moll/vim-bbye'
 Plugin 'dietsche/vim-lastplace'
+Plugin 'Yggdroot/indentLine'
+let g:indentLine_color_term = 239
 
 call vundle#end()
 
@@ -115,6 +117,9 @@ set splitbelow
 set splitright
 
 set modifiable
+
+set list
+set listchars=tab:▸\ ,trail:·
 
 autocmd VimEnter * NERDTree
 if argc() > 0
