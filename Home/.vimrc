@@ -77,6 +77,7 @@ nnoremap <expr> n  'Nn'[v:searchforward]
 nnoremap <expr> N  'nN'[v:searchforward]
 
 nnoremap <Del> "_x
+vmap <Del> "_x
 vmap r "_dP
 
 nnoremap <C-J> <C-W><C-J>
@@ -94,14 +95,14 @@ nnoremap <C-c>     :Bdelete<CR>
 nnoremap <C-Up>    :tabn<CR>
 nnoremap <C-Down>  :tabp<CR>
 
-map Q :qa<CR>
-
 map ; :
 
+map Q :qa<CR>
+
 command! W w
-command! Q q
+command! Q qa
 command! Wq wq
-command! WQ wq
+command! WQ wqa
 map U <C-R>
 
 noremap H 10h
@@ -125,3 +126,4 @@ autocmd VimEnter * NERDTree
 if argc() > 0
     autocmd VimEnter * wincmd p
 endif
+
