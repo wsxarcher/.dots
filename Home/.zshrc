@@ -7,12 +7,14 @@ export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 alias v="vi"
 alias vi="vim"
 alias fm="ranger"
+alias sl="ls"
 alias shred="shred -z"
 alias wget="wget -U 'Fuck'"
 alias curl="curl --user-agent 'Fuck'"
 
 # bin
 alias checksec="~/.dots/checksec.sh/checksec"
+alias ida="wine 'C:\\Program Files (x86)\\IDA 6.9\\idaq.exe'"
 
 # antigen
 source ~/.dots/antigen/antigen.zsh
