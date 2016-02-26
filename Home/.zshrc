@@ -16,6 +16,9 @@ alias curl="curl --user-agent 'Fuck'"
 alias checksec="~/.dots/checksec.sh/checksec"
 alias ida="wine 'C:\\Program Files (x86)\\IDA 6.9\\idaq.exe'"
 
+# autocomplete
+fpath=(~/.dots/checksec.sh/extras/zsh/ $fpath)
+
 # antigen
 source ~/.dots/antigen/antigen.zsh
 
