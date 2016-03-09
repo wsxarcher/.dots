@@ -28,6 +28,11 @@ Plugin 'dietsche/vim-lastplace'
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_color_term = 239
 
+Plugin 'gabrielelana/vim-markdown'
+let g:markdown_enable_spell_checking = 0
+
+Plugin 'scwood/vim-hybrid'
+
 call vundle#end()
 
 filetype plugin indent on
@@ -67,9 +72,12 @@ set cursorline
 set hlsearch
 
 set t_Co=256
-colorscheme tayra
+colorscheme hybrid
+set background=dark
 
-set clipboard=unnamedplus
+set guifont=Droid\ Sans\ Mono\ for\ Powerline:h11
+
+set clipboard=unnamedplus,unnamed
 
 set noshowmode
 
