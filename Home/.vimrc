@@ -75,7 +75,14 @@ set t_Co=256
 colorscheme hybrid
 set background=dark
 
-set guifont=Droid\ Sans\ Mono\ for\ Powerline:h11
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname =~ "Darwin"
+        set guifont=Droid\ Sans\ Mono\ for\ Powerline:h11
+    else
+        set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
+    endif
+endif
 
 set clipboard=unnamedplus,unnamed
 
