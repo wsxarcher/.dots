@@ -33,6 +33,10 @@ let g:markdown_enable_spell_checking = 0
 
 Plugin 'scwood/vim-hybrid'
 
+Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
 call vundle#end()
 
 filetype plugin indent on
