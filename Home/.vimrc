@@ -1,6 +1,6 @@
 set nocompatible
 
-filetype off 
+filetype off
 
 set rtp+=~/.dots/Vundle.vim
 
@@ -12,18 +12,16 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 let g:airline_powerline_fonts=1
-let g:airline_theme='bubblegum'
+let g:airline_theme='hybridline'
 set laststatus=2
 set timeoutlen=1000 ttimeoutlen=10
 
 Plugin 'scrooloose/nerdtree'
-map <C-n> :NERDTreeToggle<CR>
-
-Plugin 'bling/vim-bufferline'
-let g:bufferline_echo = 0
+Plugin 'jistr/vim-nerdtree-tabs'
+let g:nerdtree_tabs_open_on_console_startup = 1
+map <C-n> :NERDTreeTabsToggle<CR>
 
 Plugin 'ervandew/supertab'
-Plugin 'moll/vim-bbye'
 Plugin 'dietsche/vim-lastplace'
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_color_term = 239
@@ -108,12 +106,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-autocmd FileType nerdtree noremap <buffer> <C-Right> <nop>
-autocmd FileType nerdtree noremap <buffer> <C-Left> <nop>
-
-nnoremap <C-Right> :bnext<CR>
-nnoremap <C-Left>  :bprevious<CR>
-nnoremap <C-c>     :Bdelete<CR>
+nnoremap <C-Right> :tabn<CR>
+nnoremap <C-Left>  :tabp<CR>
+nnoremap <C-c>     :tabd<CR>
 
 nnoremap <C-Up>    :tabn<CR>
 nnoremap <C-Down>  :tabp<CR>
@@ -144,9 +139,4 @@ set modifiable
 
 set list
 set listchars=tab:▸\ ,trail:·
-
-autocmd VimEnter * NERDTree
-if argc() > 0
-    autocmd VimEnter * wincmd p
-endif
 
