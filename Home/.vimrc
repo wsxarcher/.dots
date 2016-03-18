@@ -108,7 +108,7 @@ nnoremap <C-H> <C-W><C-H>
 
 nnoremap <C-Right> :tabn<CR>
 nnoremap <C-Left>  :tabp<CR>
-nnoremap <C-c>     :tabd<CR>
+nnoremap <C-c>     :tabc<CR>
 
 nnoremap <C-Up>    :tabn<CR>
 nnoremap <C-Down>  :tabp<CR>
