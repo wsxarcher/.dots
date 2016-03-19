@@ -1,11 +1,25 @@
+# search neovim
+which nvim > /dev/null 2>&1
+
+if [ $? -eq 0 ]
+then
+    VIM_BIN="nvim"
+else
+    VIM_BIN="vim"
+fi
+
 # exports
 export TERM=xterm-256color
-export EDITOR="vim"
+export EDITOR=$VIM_BIN
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 # alias
-alias v="vi"
-alias vi="vim"
+alias v=$VIM_BIN
+alias vi=$VIM_BIN
+alias vim=$VIM_BIN
+
+unset $VIM_BIN
+
 alias fm="ranger"
 alias sl="ls"
 alias shred="shred -z"
