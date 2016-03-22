@@ -40,3 +40,4 @@
     palette = "#282A2E:#A54242:#8C9440:#DE935F:#5F819D:#85678F:#5E8D87:#707880:#373B41:#CC6666:#B5BD68:#F0C674:#81A2BE:#B294BB:#8ABEB7:#C5C8C6"
     scrollbar_position = hidden
     use_system_font = False
+    show_titlebar = False
