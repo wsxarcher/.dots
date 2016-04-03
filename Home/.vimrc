@@ -26,8 +26,9 @@ Plugin 'dietsche/vim-lastplace'
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_color_term = 239
 
-Plugin 'gabrielelana/vim-markdown'
-let g:markdown_enable_spell_checking = 0
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
 
 Plugin 'scwood/vim-hybrid'
 
@@ -56,6 +57,7 @@ set autoindent
 set ruler
 
 set number
+set relativenumber
 
 set mouse=a
 
@@ -81,12 +83,28 @@ set t_Co=256
 colorscheme hybrid
 set background=dark
 
+if has('nvim')
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+endif
+
+set gcr=a:blinkoff0
+
 if has("unix")
     let s:uname = system("uname")
     if s:uname =~ "Darwin"
-        set guifont=Droid\ Sans\ Mono\ for\ Powerline:h11
+"       set macligatures
+        set guifont=Hack:h12
+        if empty($TMUX)
+            let &t_si = "\<esc>]50;cursorshape=1\x7"
+            let &t_ei = "\<esc>]50;cursorshape=0\x7"
+            let &t_sr = "\<esc>]50;cursorshape=2\x7"
+        else
+            let &t_si = "\<esc>ptmux;\<esc>\<esc>]50;cursorshape=1\x7\<esc>\\"
+            let &t_ei = "\<esc>ptmux;\<esc>\<esc>]50;cursorshape=0\x7\<esc>\\"
+            let &t_sr = "\<esc>ptmux;\<esc>\<esc>]50;cursorshape=2\x7\<esc>\\"
+        endif
     else
-        set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
+        set guifont=Hack\ 12
     endif
 endif
 
@@ -101,10 +119,13 @@ nnoremap <Del> "_x
 vmap <Del> "_x
 vmap r "_dP
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+
+nnoremap <TAB>      <C-w>w
+nnoremap <S-TAB>    <C-w>W
 
 nnoremap <C-Right> :tabn<CR>
 nnoremap <C-Left>  :tabp<CR>
@@ -127,6 +148,26 @@ noremap H 10h
 noremap J 20j
 noremap K 20k
 noremap L 10l
+
+nnoremap [q    :cprevious<cr>
+nnoremap ]q    :cnext<cr>
+nnoremap [Q    :cfirst<cr>
+nnoremap ]Q    :clast<cr>
+
+nnoremap [l    :lprevious<cr>
+nnoremap ]l    :lnext<cr>
+nnoremap [L    :lfirst<cr>
+nnoremap ]L    :llast<cr>
+
+nnoremap [b    :bprevious<cr>
+nnoremap ]b    :bnext<cr>
+nnoremap [B    :bfirst<cr>
+nnoremap ]B    :blast<cr>
+
+nnoremap [t    :tabprevious<cr>
+nnoremap ]t    :tabnext<cr>
+nnoremap [T    :tabfirst<cr>
+nnoremap ]T    :tablast<cr>
 
 map s :s/
 map S :%s/
