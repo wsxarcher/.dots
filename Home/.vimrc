@@ -13,6 +13,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 let g:airline_powerline_fonts=1
 let g:airline_theme='hybridline'
+let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set timeoutlen=1000 ttimeoutlen=10
 
@@ -29,6 +30,8 @@ let g:indentLine_color_term = 239
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_frontmatter = 1
 
 Plugin 'scwood/vim-hybrid'
 
@@ -95,13 +98,13 @@ if has("unix")
 "       set macligatures
         set guifont=Hack:h12
         if empty($TMUX)
-            let &t_si = "\<esc>]50;cursorshape=1\x7"
-            let &t_ei = "\<esc>]50;cursorshape=0\x7"
-            let &t_sr = "\<esc>]50;cursorshape=2\x7"
+            let &t_SI = "\<esc>]50;cursorshape=1\x7"
+            let &t_EI = "\<esc>]50;cursorshape=0\x7"
+            let &t_SR = "\<esc>]50;cursorshape=2\x7"
         else
-            let &t_si = "\<esc>ptmux;\<esc>\<esc>]50;cursorshape=1\x7\<esc>\\"
-            let &t_ei = "\<esc>ptmux;\<esc>\<esc>]50;cursorshape=0\x7\<esc>\\"
-            let &t_sr = "\<esc>ptmux;\<esc>\<esc>]50;cursorshape=2\x7\<esc>\\"
+            let &t_SI = "\<esc>ptmux;\<esc>\<esc>]50;cursorshape=1\x7\<esc>\\"
+            let &t_EI = "\<esc>ptmux;\<esc>\<esc>]50;cursorshape=0\x7\<esc>\\"
+            let &t_SR = "\<esc>ptmux;\<esc>\<esc>]50;cursorshape=2\x7\<esc>\\"
         endif
     else
         set guifont=Hack\ 12
