@@ -1,3 +1,8 @@
+# Arch only
+if [ -f "/etc/arch-release" ]; then
+    export JAVA_HOME="/usr/lib/jvm/default/"
+fi
+
 # search neovim
 which nvim > /dev/null 2>&1
 
@@ -11,6 +16,7 @@ fi
 # exports
 export TERM=xterm-256color
 export EDITOR=$VIM_BIN
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 # alias
@@ -23,15 +29,10 @@ unset $VIM_BIN
 alias fm="ranger"
 alias sl="ls"
 alias shred="shred -z"
-alias wget="wget -U 'Fuck'"
-alias curl="curl --user-agent 'Fuck'"
 
 # bin
-alias checksec="~/.dots/checksec.sh/checksec"
 alias ida="wine 'C:\\Program Files (x86)\\IDA 6.9\\idaq.exe'"
-
-# autocomplete
-fpath=(~/.dots/checksec.sh/extras/zsh/ $fpath)
+alias ida64="wine 'C:\\Program Files (x86)\\IDA 6.9\\idaq64.exe'"
 
 # antigen
 source ~/.dots/antigen/antigen.zsh
