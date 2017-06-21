@@ -6,11 +6,3 @@
 	path = Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
 	branch = master
-[submodule "fonts"]
-	path = fonts
-	url = https://github.com/powerline/fonts
-	branch = master
-[submodule "checksec.sh"]
-	path = checksec.sh
-	url = https://github.com/slimm609/checksec.sh
-	branch = master
