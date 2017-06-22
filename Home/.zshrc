@@ -1,6 +1,7 @@
 # Arch only
 if [ -f "/etc/arch-release" ]; then
     export JAVA_HOME="/usr/lib/jvm/default/"
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
 # search neovim
@@ -16,7 +17,6 @@ fi
 # exports
 export TERM=xterm-256color
 export EDITOR=$VIM_BIN
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 # alias
@@ -24,7 +24,7 @@ alias v=$VIM_BIN
 alias vi=$VIM_BIN
 alias vim=$VIM_BIN
 
-unset $VIM_BIN
+unset VIM_BIN
 
 alias fm="ranger"
 alias sl="ls"
