@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 read -p "Copy dotfiles to $HOME ? [y/n] " -n 1 -r
 
@@ -9,4 +9,4 @@ then
     exit 1
 fi
 
-cp -irsfT $PWD/Home $HOME/
+cp -irsfT "$(dirname $0)/Home" "$HOME/"
