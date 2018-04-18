@@ -1,7 +1,7 @@
 # Arch only
 if [ -f "/etc/arch-release" ]; then
     export JAVA_HOME="/usr/lib/jvm/default/"
-    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+    [ -z "$SSH_AUTH_SOCK" ] && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
 # search neovim
