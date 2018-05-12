@@ -20,9 +20,8 @@ export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # exports
-export TERM=xterm-256color
+export TERM="xterm-direct"
 export EDITOR=$VIM_BIN
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 # alias
 alias v=$VIM_BIN
@@ -32,7 +31,6 @@ alias vim=$VIM_BIN
 unset VIM_BIN
 
 alias fm="ranger"
-alias sl="ls"
 alias shred="shred -z"
 
 # bin

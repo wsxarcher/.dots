@@ -12,7 +12,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 let g:airline_powerline_fonts=1
-let g:airline_theme='hybridline'
+let g:airline_theme='one'
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set timeoutlen=1000 ttimeoutlen=10
@@ -33,7 +33,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_frontmatter = 1
 
-Plugin 'scwood/vim-hybrid'
+Plugin 'rakr/vim-one'
 
 Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
@@ -81,13 +81,14 @@ set showcmd
 set cursorline
 
 set hlsearch
-
-set t_Co=256
-colorscheme hybrid
+set termguicolors
 set background=dark
+let g:one_allow_italics = 1
+colorscheme one
 
 if has('nvim')
     let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+    let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 endif
 
 set gcr=a:blinkoff0
