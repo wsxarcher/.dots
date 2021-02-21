@@ -1,50 +1,71 @@
-# Arch only
-if [ -f "/etc/arch-release" ]; then
-    export JAVA_HOME="/usr/lib/jvm/default/"
-    [ -z "$SSH_AUTH_SOCK" ] && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# search neovim
-which nvim > /dev/null 2>&1
+# Created by newuser for 5.8
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/wsx/.zshrc'
 
-if [ $? -eq 0 ]
-then
-    VIM_BIN="nvim"
-else
-    VIM_BIN="vim"
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+
+# create a zkbd compatible hash;
+# to add other keys to this hash, see: man 5 terminfo
+typeset -g -A key
+
+key[Home]="${terminfo[khome]}"
+key[End]="${terminfo[kend]}"
+key[Insert]="${terminfo[kich1]}"
+key[Backspace]="${terminfo[kbs]}"
+key[Delete]="${terminfo[kdch1]}"
+key[Up]="${terminfo[kcuu1]}"
+key[Down]="${terminfo[kcud1]}"
+key[Left]="${terminfo[kcub1]}"
+key[Right]="${terminfo[kcuf1]}"
+key[PageUp]="${terminfo[kpp]}"
+key[PageDown]="${terminfo[knp]}"
+key[Shift-Tab]="${terminfo[kcbt]}"
+key[Ctrl-Left]="${terminfo[kLFT5]}"
+key[Ctrl-Right]="${terminfo[kRIT5]}"
+key[Ctrl-Backspace]="^H"
+
+# setup key accordingly
+[[ -n "${key[Home]}"           ]] && bindkey -- "${key[Home]}"           beginning-of-line
+[[ -n "${key[End]}"            ]] && bindkey -- "${key[End]}"            end-of-line
+[[ -n "${key[Insert]}"         ]] && bindkey -- "${key[Insert]}"         overwrite-mode
+[[ -n "${key[Backspace]}"      ]] && bindkey -- "${key[Backspace]}"      backward-delete-char
+[[ -n "${key[Delete]}"         ]] && bindkey -- "${key[Delete]}"         delete-char
+[[ -n "${key[Up]}"             ]] && bindkey -- "${key[Up]}"             up-line-or-history
+[[ -n "${key[Down]}"           ]] && bindkey -- "${key[Down]}"           down-line-or-history
+[[ -n "${key[Left]}"           ]] && bindkey -- "${key[Left]}"           backward-char
+[[ -n "${key[Right]}"          ]] && bindkey -- "${key[Right]}"          forward-char
+[[ -n "${key[PageUp]}"         ]] && bindkey -- "${key[PageUp]}"         beginning-of-buffer-or-history
+[[ -n "${key[PageDown]}"       ]] && bindkey -- "${key[PageDown]}"       end-of-buffer-or-history
+[[ -n "${key[Shift-Tab]}"      ]] && bindkey -- "${key[Shift-Tab]}"      reverse-menu-complete
+[[ -n "${key[Ctrl-Left]}"      ]] && bindkey -- "${key[Ctrl-Left]}"      backward-word
+[[ -n "${key[Ctrl-Right]}"     ]] && bindkey -- "${key[Ctrl-Right]}"     forward-word
+[[ -n "${key[Ctrl-Backspace]}" ]] && bindkey -- "${key[Ctrl-Backspace]}" backward-kill-word
+
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
+if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+	autoload -Uz add-zle-hook-widget
+	function zle_application_mode_start { echoti smkx }
+	function zle_application_mode_stop { echoti rmkx }
+	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 
-# locale
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+# End of lines configured by zsh-newuser-install
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
-# exports
-export EDITOR=$VIM_BIN
-
-# alias
-alias v=$VIM_BIN
-alias vi=$VIM_BIN
-alias vim=$VIM_BIN
-
-unset VIM_BIN
-
-alias fm="ranger"
-alias shred="shred -z"
-
-# bin
-alias ida="wine 'C:\\Program Files (x86)\\IDA 6.9\\idaq.exe'"
-alias ida64="wine 'C:\\Program Files (x86)\\IDA 6.9\\idaq64.exe'"
-
-# antigen
-source ~/.dots/antigen/antigen.zsh
-
-antigen use oh-my-zsh
-
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
-antigen bundle git
-
-antigen theme agnoster
-
-antigen apply
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
