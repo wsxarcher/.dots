@@ -1,0 +1,20 @@
+"qdbus org.kde.kglobalaccel /component/kwin invokeShortcut view_zoom_in"
+    alt + b:4
+"qdbus org.kde.kglobalaccel /component/kwin invokeShortcut view_zoom_out"
+    alt + b:5
+
+# thumb wheel up => increase volume
+"xte 'key XF86AudioRaiseVolume'"
+   b:7
+
+# thumb wheel down => lower volume
+"xte 'key XF86AudioLowerVolume'"
+   b:6
+
+# backward button => previous song       
+"xte 'key XF86AudioPrev'"                
+   b:8                                   
+                                        
+# forward button => next song            
+"xte 'key XF86AudioNext'"                
+   b:9
